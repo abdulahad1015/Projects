@@ -1,0 +1,1 @@
+{"name":"Local: b","url":"c:\\Users\\Admin\\Documents\\CS\\SP\\b.py","tests":[{"id":1731523330928,"input":"69 4 20\n","output":"A\nD"},{"id":1731525989164,"input":"2\na\nA\na-A 2:1\n","output":"a"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Admin\\Documents\\CS\\SP\\b.py","group":"local","local":true}
