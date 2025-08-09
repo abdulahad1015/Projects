@@ -1,0 +1,11 @@
+from r3e_api import R3ESharedMemory
+import time
+
+shared_memory = R3ESharedMemory()
+shared_memory.update_offsets() # only needed once
+
+while True:
+    shared_memory.update_buffer()
+    print(shared_memory.get_value('Player'))
+
+    time.sleep(1)

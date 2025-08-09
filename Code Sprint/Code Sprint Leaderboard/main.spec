@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('img3.gif', '.'), ('img.png', '.'), ('calibri.ttf', '.')],
+    datas=[('assets\\calibri.ttf', 'assets'), ('assets\\droad.png', 'assets'), ('assets\\car.gif', 'assets'), ('assets\\alpha.ttf', 'assets'), ('assets\\titillium.ttf', 'assets')],
     hiddenimports=['pygame'],
     hookspath=[],
     hooksconfig={},

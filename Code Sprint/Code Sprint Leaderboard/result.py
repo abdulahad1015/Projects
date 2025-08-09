@@ -6,6 +6,7 @@ def get_participants(contest_no):
     start = time.time()
     response = requests.get(f"https://vjudge.net/contest/rank/single/{contest_no}")
     vjudge = response.json()
+    print(vjudge)
     submissions = vjudge['submissions']
     vjudge = vjudge['participants']
 
@@ -43,7 +44,11 @@ def get_participants(contest_no):
                         ((participants[id]['problem'][i[1]]['submissions'] - 1) * WRONG_SUBMISSION_PENALTY))
                     participants[id]['score'] += i[2]
                     if (len(i)>4):
-                        participants[id]['score'] += round(i[4]/i[5],1)
+                        # try:
+                        #     participants[id]['score'] += round(i[4]/i[5],1)
+                        # except:
+                        #     pass
+                        pass
                 else:
                     participants[id]['problem'][i[1]]['verdict'] = i[2]
 
@@ -54,9 +59,12 @@ def get_participants(contest_no):
                 participants[id]['score'] += i[2]
                 if (i[2] == 1 or len(i)>4):
 
-                    if (len(i)>4):
-
-                        participants[id]['score'] += round(i[4]/i[5],1)
+                    # if (len(i)>4):
+                    #     try:
+                    #         participants[id]['score'] += round(i[4]/i[5],1)
+                    #     except:
+                    #         pass
+                    
                     participants[id]['penalty'] += int(i[3] / 60)
         else:
             participants[id] = {}
@@ -73,6 +81,13 @@ def get_participants(contest_no):
     print(round(time.time()-start,2))
     return(participants)
 
+
+def get_time():
+    response = requests.get(f"https://vjudge.net/contest/rank/single/{contest_no}")
+    vjudge = response.json()
+    begin = vjudge['begin']
+    length = vjudge['length']
+    return(begin,length)
 
 
 
